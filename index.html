@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Elliot & Cassie — March 7, 2027</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script>
+    // Skip the password gate if this browser already entered it (see script.js)
+    try { if (localStorage.getItem("ec-unlocked") === "1") document.documentElement.classList.add("unlocked"); } catch (e) {}
+  </script>
+</head>
+<body>
+
+<!-- ── Password gate ───────────────────────────────────────────────────────── -->
+<div id="gate">
+  <img class="sprig gate-sprig--tl" src="images/eucalyptus-a.svg" alt="" aria-hidden="true" />
+  <img class="sprig gate-sprig--br" src="images/eucalyptus-b.svg" alt="" aria-hidden="true" />
+  <h1>Elliot & Cassie</h1>
+  <div class="sub">An intimate wedding celebration</div>
+  <div class="gate-card">
+    <p>This site is password protected. Please enter the password shared with you to continue.</p>
+    <input class="gate-input" type="password" id="pw-input" placeholder="Enter password" />
+    <button class="gate-btn" onclick="checkPw()">Enter</button>
+    <div class="gate-error" id="pw-err">Incorrect password — please try again.</div>
+  </div>
+</div>
+
+<!-- ── Site ────────────────────────────────────────────────────────────────── -->
+<div id="site">
+
+  <nav>
+    <div class="nav-inner">
+      <button class="nav-toggle" type="button" onclick="toggleNav()" aria-label="Menu" aria-expanded="false" aria-controls="nav-links">
+        <span></span><span></span><span></span>
+      </button>
+      <span class="nav-logo" onclick="showPage('home')" role="link" aria-label="Home" title="Home">
+        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M3 10.5 12 3l9 7.5" />
+          <path d="M5 9v11h14V9" />
+          <path d="M10 20v-6h4v6" />
+        </svg>
+      </span>
+      <div class="nav-links" id="nav-links">
+        <span class="nav-link" onclick="showPage('about')">About</span>
+        <span class="nav-link" onclick="showPage('ceremony')">Ceremony</span>
+        <span class="nav-link" onclick="showPage('reception')">Reception</span>
+        <span class="nav-link" onclick="showPage('registry')">Registry</span>
+        <span class="nav-link" onclick="showPage('rsvp')">RSVP</span>
+        <span class="nav-link" onclick="showPage('hotels')">Hotels</span>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ── Home ── -->
+  <div class="page active" id="page-home">
+    <div class="hero">
+      <div class="hero-frame">
+        <img class="sprig hero-sprig hero-sprig--tl" src="images/eucalyptus-a.svg" alt="" aria-hidden="true" />
+        <img class="sprig hero-sprig hero-sprig--br" src="images/eucalyptus-b.svg" alt="" aria-hidden="true" />
+        <img class="hero-frame-lines" src="images/geo-frame.svg" alt="" aria-hidden="true" />
+        <div class="hero-inner">
+          <div class="hero-mono">We're getting married</div>
+          <h1><span class="hero-name">Elliot</span> <span class="hero-amp">&amp;</span> <span class="hero-name">Cassie</span></h1>
+          <div class="hero-date">Sunday, March 7, 2027 at 5PM</div>
+          <div class="countdown" id="countdown"></div>
+        </div>
+      </div>
+    </div>
+    <div class="page-wrap page-wrap--home">
+      <p class="page-label">Welcome</p>
+      <p class="home-headline">
+        We're so glad you're here. Use the navigation above to explore all the details for our wedding day in Palm Springs.
+      </p>
+      <p class="home-sub">
+        Please RSVP by <strong>January 24, 2027</strong> — we'd love to save your seat.
+      </p>
+      <div class="home-actions">
+        <button class="submit-btn" onclick="showPage('ceremony')">View ceremony details</button>
+        <button class="btn-outline" onclick="showPage('rsvp')">RSVP now</button>
+      </div>
+    </div>
+    <footer><div class="names">Elliot &amp; Cassie</div><p>March 7, 2027 &nbsp;·&nbsp; Palm Springs, CA</p></footer>
+  </div>
+
+  <!-- ── About ── -->
+  <div class="page" id="page-about">
+    <div class="page-wrap">
+      <div class="page-label">Our story</div>
+      <h1 class="page-title">About us</h1>
+      <div class="page-rule"></div>
+      <p class="page-body">We're so glad you're celebrating with us. Here's a little about who we are and how we got here.</p>
+      <div class="about-grid">
+        <div class="about-card">
+          <h3>Cassie</h3>
+          <p>Tell your guests a little about yourself — where you're from, what you love, how you ended up here.</p>
+        </div>
+        <div class="about-card">
+          <h3>Elliot</h3>
+          <p>Same goes for you — introduce yourself to guests who may not know you as well.</p>
+        </div>
+      </div>
+      <div class="story-block">"Replace this with your love story — how you met, the proposal, or a moment that captures everything."</div>
+    </div>
+    <footer><div class="names">Elliot &amp; Cassie</div><p>March 7, 2027 &nbsp;·&nbsp; Palm Springs, CA</p></footer>
+  </div>
+
+  <!-- ── Ceremony ── -->
+  <div class="page" id="page-ceremony">
+    <div class="page-wrap">
+      <div class="page-label">The ceremony</div>
+      <h1 class="page-title">Date, time &amp; location</h1>
+      <div class="page-rule"></div>
+      <p class="page-body">All the details you need for our ceremony. We recommend arriving 15–20 minutes early.</p>
+      <div class="info-cards">
+        <div class="info-card">
+          <h4>Date</h4>
+          <p>Sunday<br>March 7, 2027</p>
+        </div>
+        <div class="info-card">
+          <h4>Ceremony time</h4>
+          <p>Begins at <strong>5:00 PM</strong><br>Doors open at 4:30 PM</p>
+        </div>
+        <div class="info-card">
+          <h4>Venue</h4>
+          <p>
+            <strong>Flannery Exchange</strong><br>
+            Rooftop Deck<br>
+            Downtown Palm Springs, CA<br>
+            <a class="link-sage" href="https://maps.google.com/?q=Flannery+Exchange+Palm+Springs" target="_blank">Get directions</a>
+          </p>
+        </div>
+        <div class="info-card">
+          <h4>Dress code</h4>
+          <p>Cocktail attire<br><em>Rooftop-friendly shoes recommended</em></p>
+        </div>
+      </div>
+      <div class="notice">
+        <strong>Parking:</strong> Flannery Exchange has a free parking lot on the Indian Canyon side. Street parking and paid lots are available throughout downtown.
+        Several hotels are within easy walking distance — see the Hotels page for options nearby.
+      </div>
+    </div>
+    <footer><div class="names">Elliot &amp; Cassie</div><p>March 7, 2027 &nbsp;·&nbsp; Palm Springs, CA</p></footer>
+  </div>
+
+  <!-- ── Reception ── -->
+  <div class="page" id="page-reception">
+    <div class="page-wrap">
+      <div class="page-label">Drinks, dinner &amp; dancing</div>
+      <h1 class="page-title">Reception</h1>
+      <div class="page-rule"></div>
+      <p class="page-body">
+        Keep enjoying mountain views after the ceremony as we party!
+      </p>
+
+      <div class="timeline">
+        <div class="tl-item"><div class="tl-time">5:00 – 6:30 PM</div><h4>Ceremony &amp; cocktails</h4><p>Rooftop deck</p></div>
+        <div class="tl-item"><div class="tl-time">6:30 – 7:30 PM</div><h4>Dinner</h4><p>Served buffet-style by Lulus Catering</p></div>
+        <div class="tl-item"><div class="tl-time">7:30 PM – close</div><h4>Dancing</h4><p>Until 10:00 PM</p></div>
+      </div>
+
+      <!-- Hors d'oeuvres -->
+      <div class="menu-section">
+        <div class="menu-cat">Tray passed hors d'oeuvres</div>
+        <div class="menu-grid">
+          <div class="menu-item">
+            <div class="diet-tags"><span class="tag tag-v">V</span></div>
+            <h4>Bruschetta</h4>
+            <p>Toasted crostini with vine-ripened tomatoes, roasted garlic, fresh basil, and extra virgin olive oil</p>
+          </div>
+          <div class="menu-item">
+            <div class="diet-tags"><span class="tag tag-v">V</span></div>
+            <h4>Lasagna cupcakes</h4>
+            <p>Miniature baked lasagnas layered with pasta, marinara, ricotta, and mozzarella</p>
+          </div>
+          <div class="menu-item">
+            <div class="diet-tags"><span class="tag tag-v">V</span></div>
+            <h4>Assorted mini pizzas</h4>
+            <p>Classic pepperoni, fresh margherita, and traditional cheese — baked extra crispy</p>
+          </div>
+          <div class="menu-item">
+            <div class="diet-tags"><span class="tag tag-gf">GF</span></div>
+            <h4>Zesty mini meatballs</h4>
+            <p>Bite-sized meatballs simmered in a rich marinara sauce</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Entrée -->
+      <div class="menu-section">
+        <div class="menu-cat">Entrée</div>
+        <div class="menu-grid">
+          <div class="menu-item">
+            <div class="diet-tags"><span class="tag tag-v">V</span></div>
+            <h4>Ricotta spinach cannelloni</h4>
+            <p>Pasta rolls filled with ricotta and spinach, baked in marinara and topped with Parmesan</p>
+          </div>
+          <div class="menu-item">
+            <div class="diet-tags"><span class="tag tag-gf">GF</span></div>
+            <h4>Grilled flank steak</h4>
+            <p>Juicy grilled flank steak with vibrant chimichurri sauce on the side</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sides -->
+      <div class="menu-section">
+        <div class="menu-cat">Sides</div>
+        <div class="menu-grid">
+          <div class="menu-item">
+            <div class="diet-tags"><span class="tag tag-v">V</span></div>
+            <h4>Classic Caesar salad</h4>
+            <p>Romaine with creamy Caesar dressing, shaved Parmesan, golden croutons, and Parmesan crisps</p>
+          </div>
+          <div class="menu-item">
+            <div class="diet-tags"><span class="tag tag-v">V</span></div>
+            <h4>Fresh grilled roasted vegetables</h4>
+            <p>A medley of seasonal vegetables, fire-roasted and lightly seasoned</p>
+          </div>
+          <div class="menu-item">
+            <div class="diet-tags"><span class="tag tag-v">V</span></div>
+            <h4>Red skinned mashed potatoes</h4>
+            <p>Creamy, rustic mashed potatoes served family-style</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Dessert -->
+      <div class="menu-section">
+        <div class="menu-cat">Dessert</div>
+        <div class="menu-grid">
+          <div class="menu-item">
+            <div class="diet-tags"><span class="tag tag-v">V</span><span class="tag tag-gf">GF</span></div>
+            <h4>Flourless chocolate cake</h4>
+            <p>Rich, dense chocolate cake with a silky ganache finish — naturally gluten-free</p>
+          </div>
+          <div class="menu-item">
+            <div class="diet-tags"><span class="tag tag-v">V</span></div>
+            <h4>Cannoli</h4>
+            <p>Classic Sicilian pastry shells filled with sweetened ricotta and chocolate chips</p>
+          </div>
+          <div class="menu-item">
+            <div class="diet-tags"><span class="tag tag-v">V</span></div>
+            <h4>Tiramisu</h4>
+            <p>Espresso-soaked ladyfingers layered with mascarpone cream and dusted with cocoa</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="diet-legend">
+        <span><span class="tag tag-v">V</span> Vegetarian</span>
+        <span><span class="tag tag-gf">GF</span> Gluten-free</span>
+      </div>
+      <p class="menu-note">
+        Menu by La Rosa de Venti. Served buffet-style with bread and butter.
+        Please note any additional dietary needs in your RSVP.
+      </p>
+    </div>
+    <footer><div class="names">Elliot &amp; Cassie</div><p>March 7, 2027 &nbsp;·&nbsp; Palm Springs, CA</p></footer>
+  </div>
+
+  <!-- ── Registry ── -->
+  <div class="page" id="page-registry">
+    <div class="page-wrap">
+      <div class="page-label">Gifts</div>
+      <h1 class="page-title">Registry</h1>
+      <div class="page-rule"></div>
+      <p class="page-body">Your presence is truly the greatest gift. If you'd like to celebrate us with something, we've registered at a few of our favourite places.</p>
+      <div class="reg-links">
+        <a class="reg-btn" href="#" target="_blank">Zola</a>
+        <a class="reg-btn" href="#" target="_blank">The Knot</a>
+        <a class="reg-btn" href="#" target="_blank">Amazon</a>
+        <a class="reg-btn" href="#" target="_blank">Crate &amp; Barrel</a>
+      </div>
+      <div class="reg-embed-box">
+        <p>To embed your registry directly here, replace this box with your registry's <code>&lt;iframe&gt;</code> embed code, or update the buttons above with your real registry URLs.</p>
+      </div>
+    </div>
+    <footer><div class="names">Elliot &amp; Cassie</div><p>March 7, 2027 &nbsp;·&nbsp; Palm Springs, CA</p></footer>
+  </div>
+
+  <!-- ── RSVP ── -->
+  <div class="page" id="page-rsvp">
+    <div class="page-wrap">
+      <div class="page-label">Kindly reply by January 24, 2027</div>
+      <h1 class="page-title">RSVP</h1>
+      <div class="page-rule"></div>
+      <p class="page-body">Enter your first or last name and we'll find your invitation.</p>
+
+      <!-- Step 1: lookup -->
+      <div class="rsvp-box" id="step-lookup">
+        <div class="form-group">
+          <label>Your first or last name</label>
+          <input type="text" id="lookup-name" placeholder="e.g. Jane or Smith" oninput="onLookupInput()" />
+        </div>
+        <button class="search-btn" id="lookup-btn" onclick="lookupGuest()">Find my invitation</button>
+        <div class="not-found" id="not-found-msg">
+          We couldn't find that name on our guest list. Please double-check the spelling,
+          or reach out to Cassie or Elliot directly.
+        </div>
+        <div class="match-list-wrap" id="match-list-wrap">
+          <div class="match-list-label">We found a few people — which one are you?</div>
+          <div class="match-list" id="match-list"></div>
+        </div>
+      </div>
+
+      <!-- Step 2: party confirmation -->
+      <div class="party-box" id="step-party">
+        <div class="rsvp-box">
+          <button class="btn-back" onclick="rsvpBack()">← That's not me</button>
+          <div class="party-greeting" id="party-greeting"></div>
+          <div class="party-sub" id="party-sub"></div>
+          <div class="guest-rows" id="guest-rows"></div>
+          <div class="form-group">
+            <label>Note for the couple <span class="label-optional">(optional)</span></label>
+            <textarea id="r-note" placeholder="A message, song request, or kind word…"></textarea>
+          </div>
+          <button class="submit-btn" id="rsvp-submit" onclick="submitRsvp()">Send RSVP</button>
+          <div class="submit-error" id="submit-error">Please select attending or not attending for each guest.</div>
+        </div>
+      </div>
+
+      <!-- Step 3: success -->
+      <div class="rsvp-success" id="rsvp-success">
+        <div class="big" id="rsvp-msg">Thank you!</div>
+        <p id="rsvp-detail"></p>
+      </div>
+    </div>
+    <footer><div class="names">Elliot &amp; Cassie</div><p>March 7, 2027 &nbsp;·&nbsp; Palm Springs, CA</p></footer>
+  </div>
+
+  <!-- ── Hotels ── -->
+  <div class="page" id="page-hotels">
+    <div class="page-wrap">
+      <div class="page-label">Where to stay</div>
+      <h1 class="page-title">Nearby hotels &amp; stays</h1>
+      <div class="page-rule"></div>
+      <p class="page-body">
+        Flannery Exchange is right in the heart of downtown Palm Springs, so you'll have plenty of great options
+        within easy walking distance. We recommend booking early — March is peak season!
+      </p>
+      <div class="hotels-grid">
+        <div class="hotel-card">
+          <div class="hotel-type">Boutique hotel · ~0.3 mi</div>
+          <div class="hotel-stars">★★★★★</div>
+          <h4>Del Marcos Hotel</h4>
+          <p>A gorgeous mid-century gem with poolside rooms and exceptional personal service. One of Palm Springs' most beloved boutique properties.</p>
+          <a class="hotel-link" href="https://maps.google.com/?q=Del+Marcos+Hotel+Palm+Springs" target="_blank">View on Google Maps</a>
+        </div>
+        <div class="hotel-card">
+          <div class="hotel-type">Full-service hotel · ~0.5 mi</div>
+          <div class="hotel-stars">★★★★½</div>
+          <h4>Renaissance Palm Springs</h4>
+          <p>Modern, upscale hotel with a large pool, spa, and on-site dining. A polished option for guests who want full amenities steps from the venue.</p>
+          <a class="hotel-link" href="https://maps.google.com/?q=Renaissance+Palm+Springs+Hotel" target="_blank">View on Google Maps</a>
+        </div>
+        <div class="hotel-card">
+          <div class="hotel-type">Resort &amp; spa · ~0.3 mi</div>
+          <div class="hotel-stars">★★★★</div>
+          <h4>Palm Mountain Resort &amp; Spa</h4>
+          <p>Relaxed resort with a pool, fire pits, and complimentary airport shuttle. Great value for the area.</p>
+          <a class="hotel-link" href="https://maps.google.com/?q=Palm+Mountain+Resort+Palm+Springs" target="_blank">View on Google Maps</a>
+        </div>
+        <div class="hotel-card">
+          <div class="hotel-type">Hotel · ~0.2 mi</div>
+          <div class="hotel-stars">★★★★</div>
+          <h4>Best Western Plus Las Brisas</h4>
+          <p>Centrally located with complimentary breakfast, a pool, and consistently friendly staff. One of the best value options right downtown.</p>
+          <a class="hotel-link" href="https://maps.google.com/?q=Best+Western+Plus+Las+Brisas+Palm+Springs" target="_blank">View on Google Maps</a>
+        </div>
+        <div class="hotel-card">
+          <div class="hotel-type">Hotel · ~0.4 mi</div>
+          <div class="hotel-stars">★★★★</div>
+          <h4>Hilton Palm Springs</h4>
+          <p>Classic full-service hotel two blocks from downtown with a great pool, on-site restaurant, and retro Palm Springs charm.</p>
+          <a class="hotel-link" href="https://maps.google.com/?q=Hilton+Palm+Springs" target="_blank">View on Google Maps</a>
+        </div>
+        <div class="hotel-card">
+          <div class="hotel-type">Hotel · ~0.5 mi</div>
+          <div class="hotel-stars">★★★½</div>
+          <h4>Hyatt Palm Springs</h4>
+          <p>Right on Palm Canyon Drive — unbeatable location for walking to shops and restaurants. Great value, especially for solo travelers.</p>
+          <a class="hotel-link" href="https://maps.google.com/?q=Hyatt+Palm+Springs" target="_blank">View on Google Maps</a>
+        </div>
+      </div>
+      <div class="notice">
+        <strong>March is peak season in Palm Springs</strong> — we strongly recommend booking your accommodation
+        as soon as possible to lock in the best rates and availability.
+      </div>
+    </div>
+    <footer><div class="names">Elliot &amp; Cassie</div><p>March 7, 2027 &nbsp;·&nbsp; Palm Springs, CA</p></footer>
+  </div>
+
+</div><!-- /#site -->
+
+<script src="script.js"></script>
+</body>
+</html>
